@@ -1,27 +1,21 @@
-# OS files
+# Operating system files
 .DS_Store
 Thumbs.db
 desktop.ini
 
-# Editor configs
+# VS Code settings
 .vscode/
-.idea/
-*.swp
-*.swo
 
 # Logs
 *.log
-npm-debug.log*
 
-# Node (if you ever add tooling)
-node_modules/
-dist/
-build/
-
-# Env files
+# Environment files
 .env
 .env.local
 
-# Cache
-.cache/
-.sass-cache/
+# Dependencies if you use Node later
+node_modules/
+
+# Build folders if added later
+dist/
+build/
