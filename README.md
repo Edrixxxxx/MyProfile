@@ -100,3 +100,21 @@ This project is created for educational purposes as part of a class requirement.
 ---
 
 ⭐ *Developed with assistance from AI tools as per assignment requirements.*
+
+
+
+Prompt:
+
+Give me a complete step-by-step terminal command guide to:
+
+Initialize a Git repository in my project folder
+Create a .gitignore for a static HTML/CSS/JS project
+Make my first commit with a meaningful message
+Create a new GitHub repository named "MyProfile" via command line
+(using GitHub CLI 'gh') OR explain manual creation
+Connect my local repo to GitHub remote
+Push my code to the main branch
+Enable GitHub Pages from the main branch
+Show me the final live URL format
+Also include best-practice commit message examples following
+Conventional Commits (feat:, fix:, docs:, style:).

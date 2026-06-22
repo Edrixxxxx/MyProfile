@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Edrich Josh Mabalot — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Edrich Josh Mabalot — Aspiring Software Engineer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ===== RESET ===== */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      font-weight: 500;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a:hover { color: #38bdf8; }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #38bdf8;
+      transition: width 0.3s;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #e2e8f0;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6rem 2rem 2rem;
+      background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.15), transparent 50%),
+                  radial-gradient(circle at 80% 50%, rgba(129, 140, 248, 0.15), transparent 50%);
+    }
+    .hero-content { max-width: 800px; animation: fadeUp 1s ease; }
+    .hero-avatar {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    .hero h1 span {
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      margin-bottom: 2rem;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-block;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      font-size: 1rem;
+    }
+    .btn-primary {
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      color: #0f172a;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
+    }
+    .btn-outline {
+      border: 2px solid #38bdf8;
+      color: #38bdf8;
+    }
+    .btn-outline:hover {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    /* ===== SECTIONS ===== */
+    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      margin: 0.5rem auto;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      border-radius: 4px;
+    }
+
+    /* ===== ABOUT ===== */
+    .about-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      color: #cbd5e1;
+      font-size: 1.05rem;
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+    }
+    .skill-card {
+      background: #1e293b;
+      padding: 2rem 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .skill-card:hover {
+      transform: translateY(-8px);
+      border-color: #38bdf8;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+    }
+    .skill-card .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
+    .skill-card h3 { font-size: 1.1rem; font-weight: 600; }
+
+    /* ===== PROJECTS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: #1e293b;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+    .project-img {
+      height: 180px;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    .project-info { padding: 1.5rem; }
+    .project-info h3 { margin-bottom: 0.5rem; }
+    .project-info p { color: #94a3b8; margin-bottom: 1rem; font-size: 0.95rem; }
+    .project-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* ===== CERTIFICATIONS ===== */
+    .cert-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .cert-item {
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 12px;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      transition: all 0.3s;
+    }
+    .cert-item:hover { transform: translateX(5px); }
+    .cert-item .icon {
+      font-size: 2rem;
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .cert-item h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+    .cert-item p { font-size: 0.85rem; color: #94a3b8; }
+
+    /* ===== CONTACT ===== */
+    .contact-content { text-align: center; }
+    .contact-content p {
+      color: #cbd5e1;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-links a {
+      width: 50px;
+      height: 50px;
+      background: #1e293b;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .social-links a:hover {
+      background: linear-gradient(135deg, #38bdf8, #818cf8);
+      transform: translateY(-5px);
+      color: #0f172a;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: #1e293b;
+        flex-direction: column;
+        padding: 1.5rem 2rem;
+        gap: 1rem;
+        border-radius: 0 0 0 12px;
+        transform: translateX(100%);
+        transition: transform 0.3s;
+      }
+      .nav-links.active { transform: translateX(0); }
+      .menu-toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">EJM.</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-avatar">👨‍💻</div>
+      <h1>Hi, I'm <span>Edrich Josh Mabalot</span></h1>
+      <p>Aspiring Software Engineer • Web Developer • Tech Enthusiast</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-outline">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="reveal">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <p>I am a passionate student and aspiring software engineer with a strong interest in web development, problem solving, and modern technologies. I love turning ideas into real, working applications and continuously learning new tools to improve my craft.</p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="reveal">
+    <h2 class="section-title">My Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-card"><div class="icon">🌐</div><h3>HTML5</h3></div>
+      <div class="skill-card"><div class="icon">🎨</div><h3>CSS3</h3></div>
+      <div class="skill-card"><div class="icon">⚡</div><h3>JavaScript</h3></div>
+      <div class="skill-card"><div class="icon">🐙</div><h3>Git & GitHub</h3></div>
+      <div class="skill-card"><div class="icon">⚛️</div><h3>React</h3></div>
+      <div class="skill-card"><div class="icon">🐍</div><h3>Python</h3></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="reveal">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <div class="project-img">💼</div>
+        <div class="project-info">
+          <h3>Personal Portfolio</h3>
+          <p>A responsive portfolio website built with HTML, CSS, and JavaScript, hosted on GitHub Pages.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JS</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">📝</div>
+        <div class="project-info">
+          <h3>Task Manager App</h3>
+          <p>A simple yet powerful task manager with local storage and clean UI design.</p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">LocalStorage</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img">🎮</div>
+        <div class="project-info">
+          <h3>Mini Game</h3>
+          <p>An interactive browser-based mini game built using HTML Canvas and JavaScript.</p>
+          <div class="project-tags">
+            <span class="tag">Canvas</span>
+            <span class="tag">JS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="reveal">
+    <h2 class="section-title">Certifications</h2>
+    <div class="cert-list">
+      <div class="cert-item">
+        <div class="icon">🏆</div>
+        <div>
+          <h4>Web Development Fundamentals</h4>
+          <p>Online Learning Platform • 2024</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="icon">🎓</div>
+        <div>
+          <h4>JavaScript Essentials</h4>
+          <p>Coursera • 2024</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <div class="icon">📜</div>
+        <div>
+          <h4>Git & GitHub Mastery</h4>
+          <p>Udemy • 2024</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="reveal">
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="contact-content">
+      <p>Feel free to connect with me — I'm always open to new opportunities and collaborations!</p>
+      <div class="social-links">
+        <a href="mailto:your.email@example.com" title="Email">✉️</a>
+        <a href="https://github.com/Edrixxxxx" target="_blank" title="GitHub">🐙</a>
+        <a href="#" target="_blank" title="LinkedIn">💼</a>
+        <a href="#" target="_blank" title="Facebook">📘</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2024 Edrich Josh Mabalot. Built with ❤️ using HTML, CSS, and JavaScript.</p>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu on link click (mobile)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => navLinks.classList.remove('active'));
+    });
+
+    // Scroll Reveal Animation
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
