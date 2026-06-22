@@ -1,31 +1,27 @@
-# Dependencies
-node_modules/
-package-lock.json
-
-# Environment variables
-.env
-.env.local
-
-# Editor & IDE
-.vscode/
-.idea/
-*.swp
-*.suo
-
-# OS Files
+# OS files
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Editor configs
+.vscode/
+.idea/
+*.swp
+*.swo
 
 # Logs
 *.log
 npm-debug.log*
 
-# Build outputs
+# Node (if you ever add tooling)
+node_modules/
 dist/
 build/
-.cache/
 
-# Temporary files
-*.tmp
-*.bak
+# Env files
+.env
+.env.local
+
+# Cache
+.cache/
+.sass-cache/
