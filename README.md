@@ -2,7 +2,7 @@
 
 > A personal profile website showcasing my skills, experience, and certifications as a Software Engineer.
 
-🌐 **Live Site:** [https://YOUR-USERNAME.github.io/MyProfile/](https://YOUR-USERNAME.github.io/MyProfile/)
+🌐 **Live Site:** [https://Edrixxxxx.github.io/MyProfile/](https://Edrixxxxx.github.io/MyProfile/)
 
 ---
 
@@ -60,12 +60,12 @@ MyProfile/
 ## 🚀 Getting Started
 
 ### View Online
-Visit: [https://YOUR-USERNAME.github.io/MyProfile/](https://YOUR-USERNAME.github.io/MyProfile/)
+Visit: [https://YOUR-USERNAME.github.io/MyProfile/](https://Edrixxxxx.github.io/MyProfile/)
 
 ### Run Locally
 \`\`\`bash
 # Clone the repository
-git clone https://github.com/YOUR-USERNAME/MyProfile.git
+git clone https://Edrixxxxx.github.io/MyProfile/
 
 # Navigate to the folder
 cd MyProfile
