@@ -154,6 +154,25 @@
     .cert-name { font-weight: 700; font-size: 0.9rem; }
     .cert-info { font-size: 0.82rem; color: #4b5563; }
 
+    /* ===== CIVIL SERVICE STYLING ===== */
+    .cert-detail { margin: 0.4rem 0; }
+    .rating-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #1e3a5f, #2d5580);
+      color: #fff;
+      padding: 0.25rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .cert-highlight {
+      background: #f0f7ff;
+      border-left: 4px solid #1e3a5f;
+      padding: 1rem;
+      border-radius: 0 8px 8px 0;
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       .cv-container { grid-template-columns: 1fr; }
@@ -251,8 +270,15 @@
           <div class="cert-info">Validated foundational knowledge of the Scrum framework, including core principles, roles, events, artifacts, and Agile practices.</div>
         </div>
 
-        <div class="entry">
-          <div class="cert-name">Civil Service Passer 2026</div>
+        <div class="entry cert-highlight">
+          <div class="cert-name">🏆 Civil Service Eligibility</div>
+          <div class="cert-info"><strong>Career Service Examination (Professional)</strong></div>
+          <div class="cert-detail">
+            <span class="rating-badge">Rating: 86.84%</span>
+          </div>
+          <div class="cert-info">📅 Date of Examination: August 10, 2025</div>
+          <div class="cert-info">📍 Place of Examination: NCR / Manila</div>
+          <div class="cert-info">✅ Status: Certificate of Eligibility (COE) on hand</div>
         </div>
       </section>
 
