@@ -2,548 +2,870 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Edrich Josh Mabalot — Portfolio</title>
-  <meta name="description" content="Personal portfolio of Edrich Josh Mabalot — Software Engineer." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edrich Josh Mabalot | Personal Profile</title>
   <style>
-    /* ===== RESET ===== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    /* =========================
+       GLOBAL STYLES
+    ========================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Poppins', sans-serif;
-      background: #0f172a;
-      color: #e2e8f0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #e5e7eb;
+      color: #2f3747;
       line-height: 1.6;
-      overflow-x: hidden;
-    }
-    a { text-decoration: none; color: inherit; }
-    ul { list-style: none; }
-    img { max-width: 100%; display: block; }
-
-    /* ===== NAVBAR ===== */
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: rgba(15, 23, 42, 0.85);
-      backdrop-filter: blur(10px);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 1000;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .logo {
-      font-size: 1.5rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a {
-      font-weight: 500;
-      transition: color 0.3s;
-      position: relative;
-    }
-    .nav-links a:hover { color: #38bdf8; }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #38bdf8;
-      transition: width 0.3s;
-    }
-    .nav-links a:hover::after { width: 100%; }
-    .menu-toggle {
-      display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      background: none;
-      border: none;
-      color: #e2e8f0;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* ===== HERO ===== */
-    .hero {
-      min-height: 100vh;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    /* =========================
+       PAGE WRAPPER
+    ========================== */
+    .page-wrapper {
+      max-width: 1100px;
+      margin: 30px auto;
+      background: #ffffff;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      overflow: hidden;
+      border-radius: 8px;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+    .header {
+      background: #153b56;
+      color: #ffffff;
+      padding: 45px 40px;
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 2rem;
-      background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.15), transparent 50%),
-                  radial-gradient(circle at 80% 50%, rgba(129, 140, 248, 0.15), transparent 50%);
+      gap: 35px;
     }
-    .hero-content { max-width: 800px; animation: fadeUp 1s ease; }
-    .hero-avatar {
-      width: 170px;
-      height: 170px;
+
+    .profile-image-wrapper {
+      width: 165px;
+      height: 165px;
       border-radius: 50%;
-      margin: 0 auto 1.5rem;
-      object-fit: cover;
-      border: 5px solid transparent;
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
-      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
-    }
-    .hero h1 {
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      margin-bottom: 1rem;
-    }
-    .hero h1 span {
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 1.1rem;
-      color: #94a3b8;
-      margin-bottom: 2rem;
-    }
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      padding: 0.8rem 1.8rem;
-      border-radius: 50px;
-      font-weight: 600;
-      transition: all 0.3s;
-      display: inline-block;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
-      font-size: 1rem;
-    }
-    .btn-primary {
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
-      color: #0f172a;
-    }
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4);
-    }
-    .btn-outline {
-      border: 2px solid #38bdf8;
-      color: #38bdf8;
-    }
-    .btn-outline:hover {
-      background: #38bdf8;
-      color: #0f172a;
-    }
-
-    /* ===== SECTIONS ===== */
-    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 3rem;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      margin: 0.5rem auto;
-      background: linear-gradient(90deg, #38bdf8, #818cf8);
-      border-radius: 4px;
-    }
-
-    /* ===== ABOUT ===== */
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      color: #cbd5e1;
-      font-size: 1.05rem;
-    }
-
-    /* ===== SKILLS ===== */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
-    }
-    .skill-card {
-      background: #1e293b;
-      padding: 2rem 1.5rem;
-      border-radius: 12px;
-      text-align: center;
-      transition: all 0.3s;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .skill-card:hover {
-      transform: translateY(-8px);
-      border-color: #38bdf8;
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
-    }
-    .skill-card .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
-    .skill-card h3 { font-size: 1rem; font-weight: 600; }
-    .skill-card p { font-size: 0.8rem; color: #94a3b8; margin-top: 0.3rem; }
-
-    /* ===== EXPERIENCE (TIMELINE) ===== */
-    .timeline {
-      max-width: 800px;
-      margin: 0 auto;
-      position: relative;
-    }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 20px;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: linear-gradient(180deg, #38bdf8, #818cf8);
-    }
-    .timeline-item {
-      position: relative;
-      padding-left: 60px;
-      margin-bottom: 2.5rem;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute;
-      left: 12px;
-      top: 5px;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: #38bdf8;
-      border: 4px solid #0f172a;
-      box-shadow: 0 0 0 3px #38bdf8;
-    }
-    .timeline-item h3 { font-size: 1.2rem; margin-bottom: 0.2rem; }
-    .timeline-date {
-      color: #38bdf8;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 0.3rem;
-    }
-    .timeline-sub {
-      color: #cbd5e1;
-      font-size: 0.95rem;
-      margin-bottom: 0.7rem;
-      font-weight: 500;
-    }
-    .timeline-item ul { padding-left: 1.2rem; }
-    .timeline-item ul li {
-      list-style: disc;
-      color: #94a3b8;
-      font-size: 0.9rem;
-      margin-bottom: 0.4rem;
-    }
-
-    /* ===== CERTIFICATIONS ===== */
-    .cert-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-    .cert-item {
-      background: #1e293b;
-      padding: 1.5rem;
-      border-radius: 12px;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      transition: all 0.3s;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .cert-item:hover {
-      transform: translateY(-5px);
-      border-color: #38bdf8;
-    }
-    .cert-item .icon {
-      font-size: 1.5rem;
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      overflow: hidden;
+      border: 7px solid #ffffff;
+      background: #ffffff;
       flex-shrink: 0;
     }
-    .cert-item h4 { font-size: 1rem; margin-bottom: 0.3rem; }
-    .cert-item p { font-size: 0.85rem; color: #94a3b8; margin-bottom: 0.2rem; }
 
-    /* ===== LANGUAGES ===== */
-    .lang-grid {
+    .profile-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .header-text h1 {
+      font-size: 42px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .header-text p {
+      font-size: 18px;
+      opacity: 0.9;
+    }
+
+    /* =========================
+       MAIN LAYOUT
+    ========================== */
+    .content {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-      max-width: 700px;
-      margin: 0 auto;
+      grid-template-columns: 310px 1fr;
+      min-height: 900px;
     }
-    .lang-card {
-      background: #1e293b;
-      padding: 1.5rem;
-      border-radius: 12px;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.05);
-    }
-    .lang-card h4 { font-size: 1.1rem; margin-bottom: 0.3rem; }
-    .lang-card p { font-size: 0.85rem; color: #38bdf8; }
 
-    /* ===== CONTACT ===== */
-    .contact-content { text-align: center; }
-    .contact-content p {
-      color: #cbd5e1;
-      margin-bottom: 1rem;
-      font-size: 1.05rem;
+    /* =========================
+       SIDEBAR
+    ========================== */
+    .sidebar {
+      background: #dedede;
+      padding: 40px 35px;
     }
-    .contact-info {
-      margin-bottom: 2rem;
-      color: #94a3b8;
-      font-size: 0.95rem;
+
+    .sidebar-section {
+      margin-bottom: 45px;
     }
-    .contact-info span { display: block; margin-bottom: 0.5rem; }
-    .social-links {
+
+    .sidebar-section h2 {
+      color: #30384a;
+      font-size: 22px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #777;
+      padding-bottom: 6px;
+      margin-bottom: 15px;
+    }
+
+    .contact-item {
+      margin-bottom: 12px;
+      font-size: 14px;
+      word-break: break-word;
+    }
+
+    .sidebar-section ul li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .skill-title {
+      font-weight: bold;
+      margin: 15px 0 8px;
+    }
+
+    /* =========================
+       MAIN CONTENT
+    ========================== */
+    .main {
+      padding: 40px 45px;
+      background: #ffffff;
+    }
+
+    .main-section {
+      margin-bottom: 35px;
+    }
+
+    .main-section h2 {
+      color: #30384a;
+      font-size: 25px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #153b56;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    .main-section p {
+      text-align: justify;
+      margin-bottom: 10px;
+    }
+
+    .cert-item,
+    .experience-item {
+      margin-bottom: 20px;
+    }
+
+    .cert-item h3,
+    .experience-item h3 {
+      color: #30384a;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .date {
+      font-weight: bold;
+      color: #153b56;
+      margin-bottom: 8px;
+    }
+
+    .experience-header {
       display: flex;
-      gap: 1.5rem;
-      justify-content: center;
+      justify-content: space-between;
+      gap: 20px;
       flex-wrap: wrap;
+      margin-bottom: 8px;
     }
-    .social-links a {
-      width: 50px;
-      height: 50px;
-      background: #1e293b;
-      border-radius: 50%;
+
+    .experience-header h3 {
+      flex: 1;
+    }
+
+    .experience-item ul li {
+      margin-bottom: 6px;
+    }
+
+    /* =========================
+       TECH STACK SECTION
+    ========================== */
+    .tech-stack-section {
+      padding: 35px;
+      margin-top: 30px;
+      background: #f8fafc;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .tech-stack-section h2 {
+      color: #153b56;
+      font-size: 25px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #153b56;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+    }
+
+    .tech-stack-description {
+      color: #475569;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .tech-stack-controls {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.3rem;
-      transition: all 0.3s;
-      border: 1px solid rgba(255,255,255,0.05);
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
     }
-    .social-links a:hover {
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
+
+    .tech-stack-controls input {
+      padding: 12px 14px;
+      min-width: 240px;
+      flex: 1;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    .tech-stack-controls input:focus {
+      border-color: #153b56;
+      box-shadow: 0 0 0 3px rgba(21, 59, 86, 0.15);
+    }
+
+    .tech-stack-controls button {
+      padding: 12px 16px;
+      border: none;
+      border-radius: 10px;
+      background: #153b56;
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .tech-stack-controls button:hover {
+      background: #0f2d43;
+      transform: translateY(-2px);
+    }
+
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 16px;
+    }
+
+    .tech-card {
+      background: white;
+      border-left: 5px solid #153b56;
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .tech-card:hover {
       transform: translateY(-5px);
-      color: #0f172a;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
     }
 
-    /* ===== FOOTER ===== */
-    footer {
+    .tech-card h3 {
+      color: #153b56;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .tech-category {
+      font-weight: 700;
+      color: #334155;
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .tech-card p {
+      color: #475569;
+      line-height: 1.5;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .no-result {
+      padding: 15px;
+      background: #fff;
+      border-radius: 10px;
+      color: #64748b;
+    }
+
+    /* =========================
+       BACKEND CONTACT FORM
+    ========================== */
+    .contact-form-section {
+      padding: 35px;
+      margin-top: 30px;
+      background: #f8fafc;
+      border-radius: 16px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .contact-form-section h2 {
+      color: #153b56;
+      font-size: 25px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      border-bottom: 2px solid #153b56;
+      padding-bottom: 5px;
+      margin-bottom: 12px;
+    }
+
+    .contact-form-description {
+      color: #475569;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: grid;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 15px;
+      font-family: Arial, Helvetica, sans-serif;
+      outline: none;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: #153b56;
+      box-shadow: 0 0 0 3px rgba(21, 59, 86, 0.15);
+    }
+
+    .contact-form button {
+      padding: 12px 16px;
+      border: none;
+      border-radius: 10px;
+      background: #153b56;
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background: #0f2d43;
+      transform: translateY(-2px);
+    }
+
+    .contact-form button:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .contact-status {
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .contact-status.success {
+      color: #15803d;
+    }
+
+    .contact-status.error {
+      color: #b91c1c;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+    .footer {
+      background: #153b56;
+      color: #ffffff;
       text-align: center;
-      padding: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      color: #94a3b8;
-      font-size: 0.9rem;
+      padding: 20px;
+      font-size: 14px;
     }
 
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* =========================
+       DARK MODE
+    ========================== */
+    body.dark-mode {
+      background: #0f172a;
+      color: #e5e7eb;
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      .nav-links {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background: #1e293b;
-        flex-direction: column;
-        padding: 1.5rem 2rem;
-        gap: 1rem;
-        border-radius: 0 0 0 12px;
-        transform: translateX(100%);
-        transition: transform 0.3s;
+    body.dark-mode .page-wrapper {
+      background: #111827;
+    }
+
+    body.dark-mode .main {
+      background: #111827;
+      color: #e5e7eb;
+    }
+
+    body.dark-mode .sidebar {
+      background: #1f2937;
+      color: #e5e7eb;
+    }
+
+    body.dark-mode .sidebar-section h2,
+    body.dark-mode .main-section h2,
+    body.dark-mode .cert-item h3,
+    body.dark-mode .experience-item h3 {
+      color: #93c5fd;
+    }
+
+    body.dark-mode .main-section h2 {
+      border-bottom-color: #60a5fa;
+    }
+
+    body.dark-mode .date {
+      color: #93c5fd;
+    }
+
+    body.dark-mode .tech-stack-section {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    body.dark-mode .tech-stack-section h2,
+    body.dark-mode .tech-card h3 {
+      color: #93c5fd;
+      border-bottom-color: #60a5fa;
+    }
+
+    body.dark-mode .tech-stack-description,
+    body.dark-mode .tech-category,
+    body.dark-mode .tech-card p {
+      color: #d1d5db;
+    }
+
+    body.dark-mode .tech-card {
+      background: #334155;
+      border-left-color: #60a5fa;
+    }
+
+    body.dark-mode .tech-stack-controls input {
+      background: #0f172a;
+      color: white;
+      border-color: #64748b;
+    }
+
+    body.dark-mode .no-result {
+      background: #334155;
+      color: #d1d5db;
+    }
+
+    body.dark-mode .contact-form-section {
+      background: #1e293b;
+      border-color: #334155;
+    }
+
+    body.dark-mode .contact-form-section h2 {
+      color: #93c5fd;
+      border-bottom-color: #60a5fa;
+    }
+
+    body.dark-mode .contact-form-description,
+    body.dark-mode .form-group label {
+      color: #d1d5db;
+    }
+
+    body.dark-mode .form-group input,
+    body.dark-mode .form-group textarea {
+      background: #0f172a;
+      color: white;
+      border-color: #64748b;
+    }
+
+    body.dark-mode .contact-status.success {
+      color: #86efac;
+    }
+
+    body.dark-mode .contact-status.error {
+      color: #fca5a5;
+    }
+
+    /* =========================
+       RESPONSIVE DESIGN
+    ========================== */
+    @media (max-width: 850px) {
+      .page-wrapper {
+        margin: 0;
+        border-radius: 0;
       }
-      .nav-links.active { transform: translateX(0); }
-      .menu-toggle { display: block; }
+
+      .header {
+        flex-direction: column;
+        text-align: center;
+        padding: 35px 25px;
+      }
+
+      .header-text h1 {
+        font-size: 32px;
+      }
+
+      .content {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar,
+      .main {
+        padding: 30px 25px;
+      }
+
+      .experience-header {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .profile-image-wrapper {
+        width: 135px;
+        height: 135px;
+      }
+
+      .header-text h1 {
+        font-size: 26px;
+      }
+
+      .tech-stack-controls {
+        flex-direction: column;
+      }
+
+      .tech-stack-controls input,
+      .tech-stack-controls button {
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
+  <div class="page-wrapper">
 
-  <!-- NAVBAR -->
-  <nav>
-    <div class="logo">EJM.</div>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">Profile</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <button class="menu-toggle" id="menuToggle">☰</button>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <img class="hero-avatar" src="profile.jpg" alt="Edrich Josh Mabalot" />
-      <h1>Hi, I'm <span>Edrich Josh Mabalot</span></h1>
-      <p>Software Engineer • Web Developer • Tech Enthusiast</p>
-      <div class="hero-buttons">
-        <a href="#experience" class="btn btn-primary">View Experience</a>
-        <a href="#contact" class="btn btn-outline">Contact Me</a>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="profile-image-wrapper">
+        <img src="profile.jpg" alt="Profile photo of Edrich Josh Mabalot" />
       </div>
+      <div class="header-text">
+        <h1>Edrich Josh Mabalot</h1>
+        <p>Software Engineer | Web Developer | QA and System Support</p>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <section class="sidebar-section">
+          <h2>Contact</h2>
+          <div class="contact-item">📞 09293785889</div>
+          <div class="contact-item">
+            ✉️ <a href="mailto:ejmabalot23102013@student.dmmmsu.edu.ph">ejmabalot23102013@student.dmmmsu.edu.ph</a>
+          </div>
+          <div class="contact-item">📍 Aringay, La Union</div>
+          <div class="contact-item">
+            🌐 <a href="https://www.reallygreatsite.com" target="_blank">www.reallygreatsite.com</a>
+          </div>
+        </section>
+
+        <section class="sidebar-section">
+          <h2>Skills</h2>
+          <p class="skill-title">Technical Skills</p>
+          <ul>
+            <li>C, Java, Python, JavaScript</li>
+            <li>React, HTML, CSS, XML, PHP</li>
+            <li>Vue.js, Nuxt.js</li>
+            <li>Firebase and Cloud Firestore</li>
+            <li>VS Code, Android Studio, XAMPP</li>
+            <li>Logic Development</li>
+            <li>Systems Analysis</li>
+          </ul>
+          <p class="skill-title">Soft Skills</p>
+          <ul>
+            <li>Project Management</li>
+            <li>Time Management</li>
+            <li>Effective Communication</li>
+            <li>Critical Thinking</li>
+            <li>Problem Solving</li>
+          </ul>
+        </section>
+
+        <section class="sidebar-section">
+          <h2>Languages</h2>
+          <ul>
+            <li>English - Basic</li>
+            <li>Tagalog - Fluent</li>
+            <li>Iloco - Intermediate</li>
+          </ul>
+        </section>
+
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="main">
+
+        <section class="main-section" id="profile">
+          <h2>Profile</h2>
+          <p>
+            Software Engineer with hands-on experience supporting and enhancing LIKHA ERP,
+            specializing in software testing, database management, process automation,
+            and system maintenance. Skilled in Agile project management, microservices,
+            REST APIs, Firebase, Vue.js, Nuxt.js, Cloud Firestore, and TypeScript/JavaScript.
+          </p>
+        </section>
+
+        <section class="main-section" id="certifications">
+          <h2>Certification</h2>
+          <div class="cert-item">
+            <h3>TESDA National Certificate II NC II</h3>
+            <p>Computer Systems Servicing NC II Completer</p>
+          </div>
+          <div class="cert-item">
+            <h3>Open Test Scrum Foundation Professional Certification - SFPC</h3>
+            <p>CertiProf | February 9, 2026</p>
+            <p>
+              Validated foundational knowledge of the Scrum framework, including core
+              principles, roles, events, artifacts, and Agile practices.
+            </p>
+          </div>
+          <div class="cert-item">
+            <h3>Civil Service Passer</h3>
+          </div>
+        </section>
+
+        <section class="main-section" id="experience">
+          <h2>Work Experience</h2>
+          <div class="experience-item">
+            <div class="experience-header">
+              <h3>Department of Environment and Natural Resources DENR</h3>
+              <span class="date">Work Immersion Trainee</span>
+            </div>
+            <ul>
+              <li>Assisted in administrative and clerical operations supporting environmental programs and public service initiatives.</li>
+              <li>Organized, encoded, and maintained environmental records and official documents to ensure accurate data management and retrieval.</li>
+              <li>Supported field personnel in preparing reports, documentation, and compliance records related to local environmental projects.</li>
+              <li>Developed strong organizational skills, attention to detail, and professional communication within a government office environment.</li>
+            </ul>
+          </div>
+          <div class="experience-item">
+            <div class="experience-header">
+              <h3>Zyberlab</h3>
+              <span class="date">2026 - Present</span>
+            </div>
+            <ul>
+              <li>Worked as a junior developer handling system support and development tasks.</li>
+              <li>Mapped across junction tables and supported data relationships.</li>
+              <li>Conducted rigorous system analysis and generated comprehensive QA test cases.</li>
+              <li>Troubleshot API validation exceptions and payload errors to maintain data integrity.</li>
+            </ul>
+          </div>
+        </section>
+
+        <!-- DYNAMIC TECH STACK SECTION -->
+        <section class="tech-stack-section" id="tech-stack">
+          <h2>Tech Stack</h2>
+          <p class="tech-stack-description">
+            This section was added as an improvement to make my personal profile more dynamic
+            and functional. The cards below are generated using JavaScript and can be filtered
+            using the search bar.
+          </p>
+          <div class="tech-stack-controls">
+            <input type="text" id="techSearch" placeholder="Search technology..." aria-label="Search technology" />
+            <button type="button" id="darkModeToggle">Toggle Dark Mode</button>
+          </div>
+          <div class="tech-stack-grid" id="techStackGrid"></div>
+        </section>
+
+        <!-- BACKEND CONTACT FORM SECTION -->
+        <section class="contact-form-section" id="contact-message">
+          <h2>Contact Message</h2>
+          <p class="contact-form-description">
+            This contact form uses a backend API and Supabase database. Messages submitted here
+            are sent to a Vercel Serverless Function and stored in Supabase PostgreSQL.
+          </p>
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="senderName">Name</label>
+              <input type="text" id="senderName" name="name" placeholder="Enter your name" required />
+            </div>
+            <div class="form-group">
+              <label for="senderEmail">Email</label>
+              <input type="email" id="senderEmail" name="email" placeholder="Enter your email" required />
+            </div>
+            <div class="form-group">
+              <label for="senderMessage">Message</label>
+              <textarea id="senderMessage" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" id="submitMessageBtn">Send Message</button>
+            <p id="contactStatus" class="contact-status"></p>
+          </form>
+        </section>
+
+      </main>
     </div>
-  </section>
 
-  <!-- PROFILE / ABOUT -->
-  <section id="about" class="reveal">
-    <h2 class="section-title">Profile</h2>
-    <div class="about-content">
-      <p>Software Engineer with hands-on experience supporting and enhancing LIKHA ERP, specializing in software testing, database management, process automation, and system maintenance. Skilled in Agile project management, microservices, REST APIs, Firebase, Vue.js, Nuxt.js, Cloud Firestore, and TypeScript/JavaScript.</p>
-    </div>
-  </section>
+    <footer class="footer">
+      <p>© 2026 Edrich Josh Mabalot. Personal Profile Website hosted with Vercel and powered by Supabase.</p>
+    </footer>
 
-  <!-- SKILLS -->
-  <section id="skills" class="reveal">
-    <h2 class="section-title">My Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card"><div class="icon">💻</div><h3>Languages</h3><p>C, Java, Python, JavaScript</p></div>
-      <div class="skill-card"><div class="icon">🌐</div><h3>Web</h3><p>React, HTML, CSS, XML, PHP</p></div>
-      <div class="skill-card"><div class="icon">🛠️</div><h3>Tools</h3><p>VS Code, Android Studio, XAMPP</p></div>
-      <div class="skill-card"><div class="icon">🧠</div><h3>Logic Development</h3></div>
-      <div class="skill-card"><div class="icon">📊</div><h3>Systems Analysis</h3></div>
-      <div class="skill-card"><div class="icon">🤝</div><h3>Soft Skills</h3><p>Communication, Time Management, Critical Thinking</p></div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience" class="reveal">
-    <h2 class="section-title">Work Experience</h2>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <h3>Junior Developer</h3>
-        <div class="timeline-date">2026 - Present</div>
-        <div class="timeline-sub">Zyberlab</div>
-        <ul>
-          <li>Performed data mapping across junction tables.</li>
-          <li>Conducted rigorous system analysis and generated comprehensive QA test cases.</li>
-          <li>Actively troubleshooting API validation exceptions and payload errors to maintain data integrity.</li>
-        </ul>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Work Immersion Trainee</h3>
-        <div class="timeline-date">Internship</div>
-        <div class="timeline-sub">Department of Environment and Natural Resources (DENR)</div>
-        <ul>
-          <li>Assisted in administrative and clerical operations supporting environmental programs and public service initiatives.</li>
-          <li>Organized, encoded, and maintained environmental records and official documents.</li>
-          <li>Supported field personnel in preparing reports, documentation, and compliance records.</li>
-          <li>Developed strong organizational skills, attention to detail, and professional communication.</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications" class="reveal">
-    <h2 class="section-title">Certifications</h2>
-    <div class="cert-list">
-      <div class="cert-item">
-        <div class="icon">🏆</div>
-        <div>
-          <h4>TESDA National Certificate II (NC II)</h4>
-          <p>Computer Systems Servicing NC II Completer</p>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="icon">🎓</div>
-        <div>
-          <h4>Scrum Foundation Professional Certification - SFPC™</h4>
-          <p>CertiProf • February 9, 2026</p>
-          <p>Validated foundational knowledge of the Scrum framework and Agile practices.</p>
-        </div>
-      </div>
-      <div class="cert-item">
-        <div class="icon">📜</div>
-        <div>
-          <h4>Civil Service Eligibility</h4>
-          <p>Career Service Examination (Professional) • Rating: 86.84%</p>
-          <p>August 10, 2025 • NCR / Manila • COE on hand</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- LANGUAGES -->
-  <section id="languages" class="reveal">
-    <h2 class="section-title">Languages</h2>
-    <div class="lang-grid">
-      <div class="lang-card"><h4>English</h4><p>Basic</p></div>
-      <div class="lang-card"><h4>Tagalog</h4><p>Fluent</p></div>
-      <div class="lang-card"><h4>Iloco</h4><p>Intermediate</p></div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="reveal">
-    <h2 class="section-title">Get In Touch</h2>
-    <div class="contact-content">
-      <p>Feel free to connect with me — I'm always open to new opportunities and collaborations!</p>
-      <div class="contact-info">
-        <span>📞 09293785889</span>
-        <span>✉️ ejmabalot23102013@student.dmmmsu.edu.ph</span>
-        <span>📍 Aringay, La Union</span>
-      </div>
-      <div class="social-links">
-        <a href="mailto:ejmabalot23102013@student.dmmmsu.edu.ph" title="Email">✉️</a>
-        <a href="https://github.com/Edrixxxxx" target="_blank" title="GitHub">🐙</a>
-        <a href="#" target="_blank" title="LinkedIn">💼</a>
-        <a href="#" target="_blank" title="Facebook">📘</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Edrich Josh Mabalot. Built with ❤️ using HTML, CSS, and JavaScript.</p>
-  </footer>
+  </div>
 
   <script>
-    // Mobile Menu Toggle
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    menuToggle.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-    });
+    /* =========================
+       DYNAMIC TECH STACK DATA
+    ========================== */
+    const techStack = [
+      { name: "HTML5", category: "Frontend", description: "Used to structure the content of my personal profile website." },
+      { name: "CSS3", category: "Frontend", description: "Used for layout, colors, typography, and responsive design." },
+      { name: "JavaScript", category: "Frontend", description: "Used to make the profile dynamic, interactive, and functional." },
+      { name: "React", category: "Frontend Framework", description: "Used for building reusable user interface components." },
+      { name: "Vue.js", category: "Frontend Framework", description: "Used for creating reactive and modern web interfaces." },
+      { name: "Nuxt.js", category: "Full Stack Framework", description: "Used for developing Vue-based web applications." },
+      { name: "Node.js", category: "Backend Runtime", description: "Used to run JavaScript on the server for the Vercel API." },
+      { name: "Vercel", category: "Hosting and Backend", description: "Used to deploy the website and host serverless API functions." },
+      { name: "Supabase", category: "Database (PostgreSQL)", description: "Used as the backend database to store contact form messages." },
+      { name: "Firebase", category: "Cloud and Database", description: "Used for cloud storage, authentication, and real-time database features." },
+      { name: "Git", category: "Version Control", description: "Used to track project changes and manage development history." },
+      { name: "GitHub", category: "Hosting and Version Control", description: "Used to host the repository and manage source code." },
+      { name: "VS Code", category: "Development Tool", description: "Used as the main code editor for building and improving this project." }
+    ];
 
-    // Close menu on link click (mobile)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => navLinks.classList.remove('active'));
-    });
+    const techStackGrid = document.getElementById("techStackGrid");
+    const techSearch = document.getElementById("techSearch");
+    const darkModeToggle = document.getElementById("darkModeToggle");
 
-    // Scroll Reveal Animation
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+    /* =========================
+       RENDER TECH CARDS
+    ========================== */
+    function renderTechStack(items) {
+      techStackGrid.innerHTML = "";
+      if (items.length === 0) {
+        techStackGrid.innerHTML = '<p class="no-result">No technology found.</p>';
+        return;
+      }
+      items.forEach(function (tech) {
+        var card = document.createElement("div");
+        card.className = "tech-card";
+        card.innerHTML =
+          "<h3>" + tech.name + "</h3>" +
+          '<p class="tech-category">' + tech.category + "</p>" +
+          "<p>" + tech.description + "</p>";
+        techStackGrid.appendChild(card);
       });
-    }, { threshold: 0.15 });
-    reveals.forEach(el => observer.observe(el));
+    }
+
+    /* =========================
+       SEARCH/FILTER FEATURE
+    ========================== */
+    techSearch.addEventListener("input", function () {
+      var searchValue = techSearch.value.toLowerCase();
+      var filteredTech = techStack.filter(function (tech) {
+        return (
+          tech.name.toLowerCase().includes(searchValue) ||
+          tech.category.toLowerCase().includes(searchValue) ||
+          tech.description.toLowerCase().includes(searchValue)
+        );
+      });
+      renderTechStack(filteredTech);
+    });
+
+    /* =========================
+       DARK MODE FEATURE
+    ========================== */
+    darkModeToggle.addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+      var isDarkMode = document.body.classList.contains("dark-mode");
+      localStorage.setItem("darkMode", isDarkMode);
+    });
+
+    function loadDarkModePreference() {
+      var savedDarkMode = localStorage.getItem("darkMode");
+      if (savedDarkMode === "true") {
+        document.body.classList.add("dark-mode");
+      }
+    }
+
+    /* =========================
+       BACKEND CONTACT FORM SUBMIT
+    ========================== */
+    var contactForm = document.getElementById("contactForm");
+    var contactStatus = document.getElementById("contactStatus");
+    var submitMessageBtn = document.getElementById("submitMessageBtn");
+
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        var name = document.getElementById("senderName").value.trim();
+        var email = document.getElementById("senderEmail").value.trim();
+        var message = document.getElementById("senderMessage").value.trim();
+
+        contactStatus.textContent = "Sending message...";
+        contactStatus.className = "contact-status";
+        submitMessageBtn.disabled = true;
+
+        try {
+          var response = await fetch("/api/messages", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name: name, email: email, message: message })
+          });
+
+          var result = await response.json();
+
+          if (!response.ok) {
+            throw new Error(result.message || "Something went wrong.");
+          }
+
+          contactStatus.textContent = "Message sent and saved successfully!";
+          contactStatus.className = "contact-status success";
+          contactForm.reset();
+        } catch (error) {
+          contactStatus.textContent = error.message;
+          contactStatus.className = "contact-status error";
+        } finally {
+          submitMessageBtn.disabled = false;
+        }
+      });
+    }
+
+    /* =========================
+       INITIALIZE PAGE
+    ========================== */
+    loadDarkModePreference();
+    renderTechStack(techStack);
   </script>
 </body>
 </html>
