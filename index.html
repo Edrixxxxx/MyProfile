@@ -74,14 +74,14 @@
       color: #e2e8f0;
     }
 
-    /* ===== HERO ===== */
+    /* ===== HERO (with merged profile) ===== */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 6rem 2rem 2rem;
+      padding: 7rem 2rem 3rem;
       background: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.15), transparent 50%),
                   radial-gradient(circle at 80% 50%, rgba(129, 140, 248, 0.15), transparent 50%);
     }
@@ -110,16 +110,41 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .hero p {
+    .hero-tagline {
       font-size: 1.1rem;
       color: #94a3b8;
-      margin-bottom: 2rem;
+      margin-bottom: 1.5rem;
     }
     .hero-buttons {
       display: flex;
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .hero-profile {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 1.5rem 1.8rem;
+      background: rgba(30, 41, 59, 0.6);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    .hero-profile-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #38bdf8;
+      margin-bottom: 0.6rem;
+    }
+    .hero-profile p {
+      color: #cbd5e1;
+      font-size: 0.98rem;
+      line-height: 1.7;
     }
     .btn {
       padding: 0.8rem 1.8rem;
@@ -166,15 +191,6 @@
       margin: 0.5rem auto;
       background: linear-gradient(90deg, #38bdf8, #818cf8);
       border-radius: 4px;
-    }
-
-    /* ===== ABOUT / PROFILE ===== */
-    .about-content {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-      color: #cbd5e1;
-      font-size: 1.05rem;
     }
 
     /* ===== SKILLS ===== */
@@ -298,7 +314,7 @@
     .cert-item h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
     .cert-item p { font-size: 0.85rem; color: #94a3b8; }
 
-        /* ===== TECH STACK ===== */
+    /* ===== TECH STACK ===== */
     .tech-stack-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -370,7 +386,30 @@
       margin-bottom: 2rem;
       font-size: 1.05rem;
     }
-
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .contact-info-item {
+      background: #1e293b;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+      word-break: break-word;
+    }
+    .contact-info-item:hover {
+      border-color: #38bdf8;
+      transform: translateY(-3px);
+    }
+    .contact-info-item .icon { font-size: 1.3rem; flex-shrink: 0; }
     .social-links {
       display: flex;
       gap: 1.5rem;
@@ -533,6 +572,8 @@
       .skills-container { grid-template-columns: 1fr; gap: 2rem; }
       .exp-header { flex-direction: column; align-items: flex-start; }
       .contact-form-section { margin: 0 1rem; padding: 1.5rem; }
+      .hero-profile { padding: 1.2rem; }
+      .hero-profile p { font-size: 0.9rem; }
     }
   </style>
 </head>
@@ -543,7 +584,6 @@
     <div class="logo">EJM.</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">Profile</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#certifications">Certifications</a></li>
@@ -553,26 +593,24 @@
     <button class="menu-toggle" id="menuToggle">☰</button>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO + PROFILE MERGED -->
   <section class="hero" id="home">
     <div class="hero-content">
       <div class="hero-avatar">
         <img src="profile.jpg" alt="Edrich Josh Mabalot" />
       </div>
       <h1>Hi, I'm <span>Edrich Josh Mabalot</span></h1>
-      <p>Software Engineer • Web Developer • QA and System Support</p>
+      <p class="hero-tagline">Software Engineer • Web Developer • QA and System Support</p>
       <div class="hero-buttons">
         <a href="#experience" class="btn btn-primary">View Experience</a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
-    </div>
-  </section>
 
-  <!-- PROFILE -->
-  <section id="about" class="reveal">
-    <h2 class="section-title">Profile</h2>
-    <div class="about-content">
-      <p>Software Engineer with hands-on experience supporting and enhancing LIKHA ERP, specializing in software testing, database management, process automation, and system maintenance. Skilled in Agile project management, microservices, REST APIs, Firebase, Vue.js, Nuxt.js, Cloud Firestore, and TypeScript/JavaScript.</p>
+      <!-- Profile card directly inside hero -->
+      <div class="hero-profile">
+        <span class="hero-profile-label">Profile</span>
+        <p>Software Engineer with hands-on experience supporting and enhancing LIKHA ERP, specializing in software testing, database management, process automation, and system maintenance. Skilled in Agile project management, microservices, REST APIs, Firebase, Cloud Firestore, and TypeScript/JavaScript.</p>
+      </div>
     </div>
   </section>
 
@@ -591,6 +629,8 @@
           <div class="skill-card"><div class="icon">🌐</div><h4>HTML</h4></div>
           <div class="skill-card"><div class="icon">🎨</div><h4>CSS</h4></div>
           <div class="skill-card"><div class="icon">📄</div><h4>XML / PHP</h4></div>
+          <div class="skill-card"><div class="icon">🔥</div><h4>Firebase</h4></div>
+          <div class="skill-card"><div class="icon">☁️</div><h4>Cloud Firestore</h4></div>
           <div class="skill-card"><div class="icon">💻</div><h4>VS Code</h4></div>
           <div class="skill-card"><div class="icon">🖥️</div><h4>XAMPP</h4></div>
           <div class="skill-card"><div class="icon">🧠</div><h4>Logic Dev</h4></div>
@@ -671,7 +711,7 @@
     </div>
   </section>
 
-      <!-- TECH STACK -->
+  <!-- TECH STACK -->
   <section id="tech-stack" class="reveal">
     <h2 class="section-title">Tech Stack</h2>
     <div class="tech-search-wrapper">
@@ -685,6 +725,21 @@
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-content">
       <p>Feel free to connect with me — I'm always open to new opportunities and collaborations!</p>
+
+      <div class="contact-info-grid">
+        <div class="contact-info-item">
+          <span class="icon">📞</span>
+          <span>09293785889</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="icon">✉️</span>
+          <a href="mailto:ejmabalot23102013@student.dmmmsu.edu.ph">ejmabalot23102013@student.dmmmsu.edu.ph</a>
+        </div>
+        <div class="contact-info-item">
+          <span class="icon">📍</span>
+          <span>Aringay, La Union</span>
+        </div>
+      </div>
 
       <div class="social-links">
         <a href="mailto:ejmabalot23102013@student.dmmmsu.edu.ph" title="Email">✉️</a>
@@ -749,13 +804,17 @@
     }, { threshold: 0.15 });
     reveals.forEach(function (el) { observer.observe(el); });
 
-        // ===== DYNAMIC TECH STACK =====
+    // ===== DYNAMIC TECH STACK =====
     var techStack = [
       { name: "HTML5", category: "Frontend", description: "Used to structure the content of this portfolio website." },
       { name: "CSS3", category: "Frontend", description: "Used for layout, colors, typography, and responsive design." },
       { name: "JavaScript", category: "Frontend", description: "Used to make the profile dynamic, interactive, and functional." },
       { name: "React", category: "Frontend Framework", description: "Used for building reusable user interface components." },
+      { name: "Node.js", category: "Backend Runtime", description: "Used to run JavaScript on the server for the Vercel API." },
+      { name: "Vercel", category: "Hosting and Backend", description: "Used to deploy the website and host serverless API functions." },
+      { name: "Supabase", category: "Database (PostgreSQL)", description: "Used as the backend database to store contact form messages." },
       { name: "Firebase", category: "Cloud and Database", description: "Used for cloud storage, authentication, and real-time database features." },
+      { name: "Cloud Firestore", category: "Cloud Database", description: "Used for managing cloud-based NoSQL data in modern applications." },
       { name: "Git", category: "Version Control", description: "Used to track project changes and manage development history." },
       { name: "GitHub", category: "Version Control and Hosting", description: "Used to host the repository and manage source code." },
       { name: "VS Code", category: "Development Tool", description: "Used as the main code editor for building this project." }
