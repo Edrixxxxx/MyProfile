@@ -298,6 +298,71 @@
     .cert-item h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
     .cert-item p { font-size: 0.85rem; color: #94a3b8; }
 
+        /* ===== TECH STACK ===== */
+    .tech-stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .tech-stack-card {
+      background: #1e293b;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border-left: 4px solid #38bdf8;
+      transition: all 0.3s;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      border-right: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .tech-stack-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+      border-left-color: #818cf8;
+    }
+    .tech-stack-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.3rem;
+    }
+    .tech-stack-card .tech-cat {
+      color: #38bdf8;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .tech-stack-card p {
+      color: #94a3b8;
+      font-size: 0.85rem;
+    }
+    .tech-search-wrapper {
+      max-width: 500px;
+      margin: 0 auto 2rem;
+    }
+    .tech-search {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 50px;
+      color: #e2e8f0;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .tech-search:focus {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+    .tech-search::placeholder { color: #64748b; }
+    .tech-no-result {
+      text-align: center;
+      color: #64748b;
+      padding: 2rem;
+      font-size: 0.95rem;
+    }
+
     /* ===== CONTACT ===== */
     .contact-content { text-align: center; }
     .contact-content p {
@@ -504,6 +569,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#tech-stack">Tech Stack</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle">☰</button>
@@ -632,6 +698,15 @@
     </div>
   </section>
 
+      <!-- TECH STACK -->
+  <section id="tech-stack" class="reveal">
+    <h2 class="section-title">Tech Stack</h2>
+    <div class="tech-search-wrapper">
+      <input type="text" id="techSearch" class="tech-search" placeholder="Search technologies..." aria-label="Search technologies" />
+    </div>
+    <div class="tech-stack-grid" id="techStackGrid"></div>
+  </section>
+
   <!-- CONTACT -->
   <section id="contact" class="reveal">
     <h2 class="section-title">Get In Touch</h2>
@@ -719,6 +794,58 @@
       });
     }, { threshold: 0.15 });
     reveals.forEach(function (el) { observer.observe(el); });
+
+        // ===== DYNAMIC TECH STACK =====
+    var techStack = [
+      { name: "HTML5", category: "Frontend", description: "Used to structure the content of this portfolio website." },
+      { name: "CSS3", category: "Frontend", description: "Used for layout, colors, typography, and responsive design." },
+      { name: "JavaScript", category: "Frontend", description: "Used to make the profile dynamic, interactive, and functional." },
+      { name: "React", category: "Frontend Framework", description: "Used for building reusable user interface components." },
+      { name: "Vue.js", category: "Frontend Framework", description: "Used for creating reactive and modern web interfaces." },
+      { name: "Nuxt.js", category: "Full Stack Framework", description: "Used for developing Vue-based web applications." },
+      { name: "Node.js", category: "Backend Runtime", description: "Used to run JavaScript on the server for the Vercel API." },
+      { name: "Vercel", category: "Hosting and Backend", description: "Used to deploy the website and host serverless API functions." },
+      { name: "Supabase", category: "Database (PostgreSQL)", description: "Used as the backend database to store contact form messages." },
+      { name: "Firebase", category: "Cloud and Database", description: "Used for cloud storage, authentication, and real-time database features." },
+      { name: "Cloud Firestore", category: "Cloud Database", description: "Used for managing cloud-based NoSQL data in modern applications." },
+      { name: "Git", category: "Version Control", description: "Used to track project changes and manage development history." },
+      { name: "GitHub", category: "Version Control and Hosting", description: "Used to host the repository and manage source code." },
+      { name: "VS Code", category: "Development Tool", description: "Used as the main code editor for building this project." }
+    ];
+
+    var techStackGrid = document.getElementById("techStackGrid");
+    var techSearch = document.getElementById("techSearch");
+
+    function renderTechStack(items) {
+      techStackGrid.innerHTML = "";
+      if (items.length === 0) {
+        techStackGrid.innerHTML = '<p class="tech-no-result">No technology found.</p>';
+        return;
+      }
+      items.forEach(function (tech) {
+        var card = document.createElement("div");
+        card.className = "tech-stack-card";
+        card.innerHTML =
+          "<h4>" + tech.name + "</h4>" +
+          '<p class="tech-cat">' + tech.category + "</p>" +
+          "<p>" + tech.description + "</p>";
+        techStackGrid.appendChild(card);
+      });
+    }
+
+    techSearch.addEventListener("input", function () {
+      var searchValue = techSearch.value.toLowerCase();
+      var filtered = techStack.filter(function (tech) {
+        return (
+          tech.name.toLowerCase().includes(searchValue) ||
+          tech.category.toLowerCase().includes(searchValue) ||
+          tech.description.toLowerCase().includes(searchValue)
+        );
+      });
+      renderTechStack(filtered);
+    });
+
+    renderTechStack(techStack);
 
     // ===== BACKEND CONTACT FORM SUBMIT =====
     var contactForm = document.getElementById("contactForm");
