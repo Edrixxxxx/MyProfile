@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Edrich Josh Mabalot — Portfolio</title>
-  <meta name="description" content="Personal portfolio of Edrich Josh Mabalot — Aspiring Software Engineer." />
+  <meta name="description" content="Personal portfolio of Edrich Josh Mabalot — Software Engineer." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -91,12 +91,14 @@
       height: 150px;
       border-radius: 50%;
       margin: 0 auto 1.5rem;
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 4rem;
+      overflow: hidden;
+      border: 4px solid #38bdf8;
       box-shadow: 0 20px 40px rgba(56, 189, 248, 0.3);
+    }
+    .hero-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.5rem);
@@ -166,7 +168,7 @@
       border-radius: 4px;
     }
 
-    /* ===== ABOUT ===== */
+    /* ===== ABOUT / PROFILE ===== */
     .about-content {
       max-width: 800px;
       margin: 0 auto;
@@ -176,74 +178,97 @@
     }
 
     /* ===== SKILLS ===== */
+    .skills-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .skills-column h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1.2rem;
+      color: #38bdf8;
+    }
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 1rem;
     }
     .skill-card {
       background: #1e293b;
-      padding: 2rem 1.5rem;
+      padding: 1.2rem 1rem;
       border-radius: 12px;
       text-align: center;
       transition: all 0.3s;
       border: 1px solid rgba(255,255,255,0.05);
     }
     .skill-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-5px);
       border-color: #38bdf8;
       box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
     }
-    .skill-card .icon { font-size: 2.5rem; margin-bottom: 0.8rem; }
-    .skill-card h3 { font-size: 1.1rem; font-weight: 600; }
+    .skill-card .icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .skill-card h4 { font-size: 0.9rem; font-weight: 600; }
 
-    /* ===== PROJECTS ===== */
-    .projects-grid {
+    /* ===== EXPERIENCE ===== */
+    .experience-list {
+      max-width: 800px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
     }
-    .project-card {
+    .exp-card {
       background: #1e293b;
+      padding: 2rem;
       border-radius: 12px;
-      overflow: hidden;
+      border-left: 4px solid #38bdf8;
       transition: all 0.3s;
-      border: 1px solid rgba(255,255,255,0.05);
     }
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    .exp-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
     }
-    .project-img {
-      height: 180px;
-      background: linear-gradient(135deg, #38bdf8, #818cf8);
+    .exp-header {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-    }
-    .project-info { padding: 1.5rem; }
-    .project-info h3 { margin-bottom: 0.5rem; }
-    .project-info p { color: #94a3b8; margin-bottom: 1rem; font-size: 0.95rem; }
-    .project-tags {
-      display: flex;
-      gap: 0.5rem;
       flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.8rem;
     }
-    .tag {
+    .exp-header h3 { font-size: 1.15rem; }
+    .exp-date {
       background: rgba(56, 189, 248, 0.15);
       color: #38bdf8;
-      padding: 0.3rem 0.7rem;
+      padding: 0.3rem 0.8rem;
       border-radius: 50px;
       font-size: 0.8rem;
-      font-weight: 500;
+      font-weight: 600;
+    }
+    .exp-role {
+      color: #818cf8;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+    .exp-card ul {
+      padding-left: 1.2rem;
+      list-style: disc;
+    }
+    .exp-card ul li {
+      color: #94a3b8;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
     }
 
     /* ===== CERTIFICATIONS ===== */
     .cert-list {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
     }
     .cert-item {
       background: #1e293b;
@@ -251,23 +276,53 @@
       border-radius: 12px;
       display: flex;
       gap: 1rem;
-      align-items: center;
+      align-items: flex-start;
       transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
     }
-    .cert-item:hover { transform: translateX(5px); }
+    .cert-item:hover {
+      transform: translateX(5px);
+      border-color: #38bdf8;
+    }
     .cert-item .icon {
-      font-size: 2rem;
+      font-size: 1.5rem;
       background: linear-gradient(135deg, #38bdf8, #818cf8);
-      width: 50px;
-      height: 50px;
+      width: 45px;
+      height: 45px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
     }
-    .cert-item h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+    .cert-item h4 { font-size: 0.95rem; margin-bottom: 0.3rem; }
     .cert-item p { font-size: 0.85rem; color: #94a3b8; }
+
+    /* ===== LANGUAGES ===== */
+    .languages-grid {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .lang-card {
+      background: #1e293b;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      min-width: 160px;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .lang-card:hover {
+      transform: translateY(-5px);
+      border-color: #818cf8;
+    }
+    .lang-card .icon { font-size: 2rem; margin-bottom: 0.5rem; }
+    .lang-card h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+    .lang-card p { color: #94a3b8; font-size: 0.85rem; }
 
     /* ===== CONTACT ===== */
     .contact-content { text-align: center; }
@@ -276,11 +331,35 @@
       margin-bottom: 2rem;
       font-size: 1.05rem;
     }
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+    }
+    .contact-info-item {
+      background: #1e293b;
+      padding: 1rem 1.2rem;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .contact-info-item:hover {
+      border-color: #38bdf8;
+      transform: translateY(-3px);
+    }
+    .contact-info-item .icon { font-size: 1.3rem; }
     .social-links {
       display: flex;
       gap: 1.5rem;
       justify-content: center;
       flex-wrap: wrap;
+      margin-bottom: 2rem;
     }
     .social-links a {
       width: 50px;
@@ -300,7 +379,7 @@
       color: #0f172a;
     }
 
-    /* ===== BACKEND CONTACT FORM (NEW) ===== */
+    /* ===== BACKEND CONTACT FORM ===== */
     .contact-form-section {
       max-width: 700px;
       margin: 0 auto;
@@ -308,7 +387,6 @@
       background: #1e293b;
       border-radius: 16px;
       border: 1px solid rgba(255,255,255,0.05);
-      margin-top: 3rem;
     }
     .contact-form-section h3 {
       font-size: 1.5rem;
@@ -325,7 +403,7 @@
       color: #94a3b8;
       text-align: center;
       margin-bottom: 1.5rem;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
     }
     .contact-form {
       display: grid;
@@ -435,7 +513,9 @@
       }
       .nav-links.active { transform: translateX(0); }
       .menu-toggle { display: block; }
-      .contact-form-section { margin: 2rem 1rem 0; padding: 1.5rem; }
+      .skills-container { grid-template-columns: 1fr; gap: 2rem; }
+      .exp-header { flex-direction: column; align-items: flex-start; }
+      .contact-form-section { margin: 0 1rem; padding: 1.5rem; }
     }
   </style>
 </head>
@@ -446,10 +526,11 @@
     <div class="logo">EJM.</div>
     <ul class="nav-links" id="navLinks">
       <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#about">Profile</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#languages">Languages</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <button class="menu-toggle" id="menuToggle">☰</button>
@@ -458,75 +539,97 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-content">
-      <div class="hero-avatar">👨‍💻</div>
+      <div class="hero-avatar">
+        <img src="profile.jpg" alt="Edrich Josh Mabalot" />
+      </div>
       <h1>Hi, I'm <span>Edrich Josh Mabalot</span></h1>
-      <p>Aspiring Software Engineer • Web Developer • Tech Enthusiast</p>
+      <p>Software Engineer • Web Developer • QA and System Support</p>
       <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#experience" class="btn btn-primary">View Experience</a>
         <a href="#contact" class="btn btn-outline">Contact Me</a>
       </div>
     </div>
   </section>
 
-  <!-- ABOUT -->
+  <!-- PROFILE -->
   <section id="about" class="reveal">
-    <h2 class="section-title">About Me</h2>
+    <h2 class="section-title">Profile</h2>
     <div class="about-content">
-      <p>I am a passionate student and aspiring software engineer with a strong interest in web development, problem solving, and modern technologies. I love turning ideas into real, working applications and continuously learning new tools to improve my craft.</p>
+      <p>Software Engineer with hands-on experience supporting and enhancing LIKHA ERP, specializing in software testing, database management, process automation, and system maintenance. Skilled in Agile project management, microservices, REST APIs, Firebase, Vue.js, Nuxt.js, Cloud Firestore, and TypeScript/JavaScript.</p>
     </div>
   </section>
 
   <!-- SKILLS -->
   <section id="skills" class="reveal">
-    <h2 class="section-title">My Skills</h2>
-    <div class="skills-grid">
-      <div class="skill-card"><div class="icon">🌐</div><h3>HTML5</h3></div>
-      <div class="skill-card"><div class="icon">🎨</div><h3>CSS3</h3></div>
-      <div class="skill-card"><div class="icon">⚡</div><h3>JavaScript</h3></div>
-      <div class="skill-card"><div class="icon">🐙</div><h3>Git & GitHub</h3></div>
-      <div class="skill-card"><div class="icon">⚛️</div><h3>React</h3></div>
-      <div class="skill-card"><div class="icon">🐍</div><h3>Python</h3></div>
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-container">
+      <div class="skills-column">
+        <h3>💻 Technical Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="icon">🔤</div><h4>C</h4></div>
+          <div class="skill-card"><div class="icon">☕</div><h4>Java</h4></div>
+          <div class="skill-card"><div class="icon">🐍</div><h4>Python</h4></div>
+          <div class="skill-card"><div class="icon">⚡</div><h4>JavaScript</h4></div>
+          <div class="skill-card"><div class="icon">⚛️</div><h4>React</h4></div>
+          <div class="skill-card"><div class="icon">🌐</div><h4>HTML</h4></div>
+          <div class="skill-card"><div class="icon">🎨</div><h4>CSS</h4></div>
+          <div class="skill-card"><div class="icon">📄</div><h4>XML / PHP</h4></div>
+          <div class="skill-card"><div class="icon">💚</div><h4>Vue.js</h4></div>
+          <div class="skill-card"><div class="icon">🟢</div><h4>Nuxt.js</h4></div>
+          <div class="skill-card"><div class="icon">🔥</div><h4>Firebase</h4></div>
+          <div class="skill-card"><div class="icon">☁️</div><h4>Cloud Firestore</h4></div>
+          <div class="skill-card"><div class="icon">💻</div><h4>VS Code</h4></div>
+          <div class="skill-card"><div class="icon">📱</div><h4>Android Studio</h4></div>
+          <div class="skill-card"><div class="icon">🖥️</div><h4>XAMPP</h4></div>
+          <div class="skill-card"><div class="icon">🧠</div><h4>Logic Dev</h4></div>
+          <div class="skill-card"><div class="icon">📊</div><h4>Systems Analysis</h4></div>
+        </div>
+      </div>
+      <div class="skills-column">
+        <h3>🤝 Soft Skills</h3>
+        <div class="skills-grid">
+          <div class="skill-card"><div class="icon">📋</div><h4>Project Mgmt</h4></div>
+          <div class="skill-card"><div class="icon">⏰</div><h4>Time Mgmt</h4></div>
+          <div class="skill-card"><div class="icon">🗣️</div><h4>Communication</h4></div>
+          <div class="skill-card"><div class="icon">🧩</div><h4>Critical Thinking</h4></div>
+          <div class="skill-card"><div class="icon">🔧</div><h4>Problem Solving</h4></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section id="projects" class="reveal">
-    <h2 class="section-title">Projects</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <div class="project-img">💼</div>
-        <div class="project-info">
-          <h3>Personal Portfolio</h3>
-          <p>A responsive portfolio website built with HTML, CSS, and JavaScript, hosted on GitHub Pages.</p>
-          <div class="project-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JS</span>
-          </div>
+  <!-- WORK EXPERIENCE -->
+  <section id="experience" class="reveal">
+    <h2 class="section-title">Work Experience</h2>
+    <div class="experience-list">
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h3>Department of Environment and Natural Resources (DENR)</h3>
+          <span class="exp-date">Work Immersion</span>
         </div>
+        <p class="exp-role">Work Immersion Trainee</p>
+        <ul>
+          <li>Assisted in administrative and clerical operations supporting environmental programs and public service initiatives.</li>
+          <li>Organized, encoded, and maintained environmental records and official documents to ensure accurate data management and retrieval.</li>
+          <li>Supported field personnel in preparing reports, documentation, and compliance records related to local environmental projects.</li>
+          <li>Developed strong organizational skills, attention to detail, and professional communication within a government office environment.</li>
+        </ul>
       </div>
-      <div class="project-card">
-        <div class="project-img">📝</div>
-        <div class="project-info">
-          <h3>Task Manager App</h3>
-          <p>A simple yet powerful task manager with local storage and clean UI design.</p>
-          <div class="project-tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">LocalStorage</span>
-          </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <h3>Zyberlab</h3>
+          <span class="exp-date">2026 — Present</span>
         </div>
+        <p class="exp-role">Junior Developer</p>
+        <ul>
+          <li>Working as a junior developer in Zyberlab, handling mapping across junction tables.</li>
+          <li>Conducted rigorous system analysis and generated comprehensive QA test cases.</li>
+          <li>Actively troubleshooting API validation exceptions and payload errors to maintain data integrity.</li>
+        </ul>
       </div>
-      <div class="project-card">
-        <div class="project-img">🎮</div>
-        <div class="project-info">
-          <h3>Mini Game</h3>
-          <p>An interactive browser-based mini game built using HTML Canvas and JavaScript.</p>
-          <div class="project-tags">
-            <span class="tag">Canvas</span>
-            <span class="tag">JS</span>
-          </div>
-        </div>
-      </div>
+
     </div>
   </section>
 
@@ -537,23 +640,46 @@
       <div class="cert-item">
         <div class="icon">🏆</div>
         <div>
-          <h4>Web Development Fundamentals</h4>
-          <p>Online Learning Platform • 2024</p>
+          <h4>TESDA National Certificate II (NC II)</h4>
+          <p>Computer Systems Servicing NC II Completer</p>
         </div>
       </div>
       <div class="cert-item">
         <div class="icon">🎓</div>
         <div>
-          <h4>JavaScript Essentials</h4>
-          <p>Coursera • 2024</p>
+          <h4>Open Test Scrum Foundation Professional Certification — SFPC™</h4>
+          <p>CertiProf • February 9, 2026</p>
+          <p>Validated foundational knowledge of the Scrum framework, including core principles, roles, events, artifacts, and Agile practices.</p>
         </div>
       </div>
       <div class="cert-item">
         <div class="icon">📜</div>
         <div>
-          <h4>Git & GitHub Mastery</h4>
-          <p>Udemy • 2024</p>
+          <h4>Civil Service Passer</h4>
+          <p>Philippine Civil Service Commission</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section id="languages" class="reveal">
+    <h2 class="section-title">Languages</h2>
+    <div class="languages-grid">
+      <div class="lang-card">
+        <div class="icon">🇺🇸</div>
+        <h4>English</h4>
+        <p>Basic</p>
+      </div>
+      <div class="lang-card">
+        <div class="icon">🇵🇭</div>
+        <h4>Tagalog</h4>
+        <p>Fluent</p>
+      </div>
+      <div class="lang-card">
+        <div class="icon">🗣️</div>
+        <h4>Iloco</h4>
+        <p>Intermediate</p>
       </div>
     </div>
   </section>
@@ -563,6 +689,26 @@
     <h2 class="section-title">Get In Touch</h2>
     <div class="contact-content">
       <p>Feel free to connect with me — I'm always open to new opportunities and collaborations!</p>
+
+      <div class="contact-info-grid">
+        <div class="contact-info-item">
+          <span class="icon">📞</span>
+          <span>09293785889</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="icon">✉️</span>
+          <a href="mailto:ejmabalot23102013@student.dmmmsu.edu.ph">ejmabalot23102013@student.dmmmsu.edu.ph</a>
+        </div>
+        <div class="contact-info-item">
+          <span class="icon">📍</span>
+          <span>Aringay, La Union</span>
+        </div>
+        <div class="contact-info-item">
+          <span class="icon">🌐</span>
+          <a href="https://www.reallygreatsite.com" target="_blank">www.reallygreatsite.com</a>
+        </div>
+      </div>
+
       <div class="social-links">
         <a href="mailto:ejmabalot23102013@student.dmmmsu.edu.ph" title="Email">✉️</a>
         <a href="https://github.com/Edrixxxxx" target="_blank" title="GitHub">🐙</a>
@@ -570,7 +716,7 @@
         <a href="#" target="_blank" title="Facebook">📘</a>
       </div>
 
-      <!-- BACKEND CONTACT FORM (NEW IMPROVEMENT) -->
+      <!-- BACKEND CONTACT FORM -->
       <div class="contact-form-section">
         <h3>Send Me a <span>Message</span></h3>
         <p class="contact-form-description">
@@ -626,7 +772,7 @@
     }, { threshold: 0.15 });
     reveals.forEach(function (el) { observer.observe(el); });
 
-    // ===== BACKEND CONTACT FORM SUBMIT (NEW) =====
+    // ===== BACKEND CONTACT FORM SUBMIT =====
     var contactForm = document.getElementById("contactForm");
     var contactStatus = document.getElementById("contactStatus");
     var submitMessageBtn = document.getElementById("submitMessageBtn");
