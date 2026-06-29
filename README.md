@@ -1,17 +1,18 @@
 # 👨‍💻 Edrich Josh Mabalot — Personal Portfolio
 
-> A personal profile website showcasing my skills, experience, and certifications as a Software Engineer.
+> A full-stack personal portfolio website showcasing my skills, experience, and certifications as a Software Engineer — featuring a working contact form powered by a Vercel backend and Supabase database.
 
-🌐 **Live Site:** [https://Edrixxxxx.github.io/MyProfile/](https://Edrixxxxx.github.io/MyProfile/)
+🌐 **Live Site:** [https://my-profile-tau-gray.vercel.app](https://my-profile-tau-gray.vercel.app)
 
 ---
 
 ## 📖 About
 
 This personal portfolio was developed as part of an academic requirement to demonstrate proficiency in:
-- Version control using **Git**
-- Hosting via **GitHub Pages**
-- Web development fundamentals
+- Version control using **Git** and **GitHub**
+- Deployment via **Vercel**
+- Full-stack web development (frontend + backend API)
+- Database integration with **Supabase (PostgreSQL)**
 - Use of **AI tools** for design and content assistance
 
 ---
@@ -23,8 +24,9 @@ This personal portfolio was developed as part of an academic requirement to demo
 - ✅ Skills showcase (Technical & Soft Skills)
 - ✅ Work experience timeline
 - ✅ Certifications display (TESDA NC II, SFPC)
-- ✅ Contact information section
-- ✅ Clean, modern navy-blue theme
+- ✅ Dynamic Tech Stack section with live search filter
+- ✅ **Working contact form** — saves messages to a Supabase database via a Vercel serverless API
+- ✅ Clean, modern navy-blue theme with smooth scroll animations
 
 ---
 
@@ -34,9 +36,11 @@ This personal portfolio was developed as part of an academic requirement to demo
 |------|---------|
 | **HTML5** | Page structure |
 | **CSS3** | Styling and responsive design |
-| **JavaScript** | Interactivity |
-| **Git** | Version control |
-| **GitHub Pages** | Hosting |
+| **JavaScript** | Interactivity & dynamic content |
+| **Node.js** | Serverless backend runtime |
+| **Vercel** | Hosting + serverless API functions |
+| **Supabase** | PostgreSQL database for contact messages |
+| **Git & GitHub** | Version control |
 | **AI Tools** | Content & design assistance (ChatGPT/Claude) |
 
 ---
@@ -45,13 +49,11 @@ This personal portfolio was developed as part of an academic requirement to demo
 
 \`\`\`
 MyProfile/
-├── index.html          # Main HTML file
-├── css/                # Stylesheets
-│   └── style.css
-├── js/                 # JavaScript files
-│   └── script.js
-├── assets/             # Images and icons
-│   └── images/
+├── index.html          # Main portfolio page (HTML, CSS, JS)
+├── api/
+│   └── messages.js     # Vercel serverless API (Supabase integration)
+├── profile.jpg         # Profile picture
+├── .gitignore          # Ignored files (env, node_modules, etc.)
 └── README.md           # Project documentation
 \`\`\`
 
@@ -60,12 +62,12 @@ MyProfile/
 ## 🚀 Getting Started
 
 ### View Online
-Visit: [https://YOUR-USERNAME.github.io/MyProfile/](https://Edrixxxxx.github.io/MyProfile/)
+Visit: [https://my-profile-tau-gray.vercel.app](https://my-profile-tau-gray.vercel.app)
 
 ### Run Locally
 \`\`\`bash
 # Clone the repository
-git clone https://Edrixxxxx.github.io/MyProfile/
+git clone https://github.com/Edrixxxxx/MyProfile.git
 
 # Navigate to the folder
 cd MyProfile
@@ -73,6 +75,14 @@ cd MyProfile
 # Open in browser
 open index.html
 \`\`\`
+
+> ⚠️ The contact form requires environment variables (`SUPABASE_URL` and `SUPABASE_ANON_KEY`) configured in Vercel to function.
+
+---
+
+## 🔧 Backend & Database
+
+The contact form sends messages to a **Vercel serverless function** (`/api/messages`), which securely inserts the data into a **Supabase PostgreSQL** database. Row Level Security (RLS) is enabled to protect the data.
 
 ---
 
@@ -82,6 +92,7 @@ open index.html
 - 📍 Aringay, La Union
 - 📧 ejmabalot23102013@student.dmmmsu.edu.ph
 - 📱 09293785889
+- 🐙 [GitHub](https://github.com/Edrixxxxx)
 
 ---
 
