@@ -19,3 +19,14 @@ node_modules/
 # Build folders if added later
 dist/
 build/
+# Environment variables
+.env.local
+.vercel
+
+# Environment variables
+.env.local
+.vercel
+
+# Environment variables
+.env.local
+.vercel

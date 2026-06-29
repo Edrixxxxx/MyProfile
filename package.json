@@ -1,0 +1,15 @@
+{
+  "name": "myprofile",
+  "version": "1.0.0",
+  "description": "Personal profile website with backend contact form and Supabase database",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.0"
+  },
+  "devDependencies": {
+    "vercel": "^37.0.0"
+  }
+}
